@@ -14,7 +14,11 @@ const { Schema } = require("mongoose");
 const actorSchema = new Schema(
   {
     name: String,
-    country: String,
+    country: {
+      type: Schema.Types.ObjectId,
+      ref: 'Country',
+      required: true
+   }
   },
   { timestamps: true }
 );
